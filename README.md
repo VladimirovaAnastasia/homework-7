@@ -1,13 +1,14 @@
 # ДЗ
 
 ## Добавить сбор метрик на свой проект
-- Подключить send.js на свой проект
-- Прислать ссылку на файл, где собираются метрики
+- Подключить [send.js](https://github.com/VladimirovaAnastasia/homework-7/blob/master/src/stats/stats.js) на свой проект
+- Прислать [ссылку на файл](https://github.com/VladimirovaAnastasia/homework-7/blob/master/src/app/index.js), где собираются метрики 
 
 ## Реализовать сбор и анализ этих данных
-- Прислать ссылку на GitHub Pages файла, где в консоли будет выводиться вся необходимая информация по сценариям анализа данных.
+- Прислать [ссылку на GitHub Pages файла]('https://vladimirovaanastasia.github.io/homework-7/dist/index.html'), где в консоли будет выводиться вся необходимая информация по сценариям анализа данных.
 - Реализовать сами сценарии
 
+[Ссылка на приложение]('https://vladimirovaanastasia.github.io/homework-7/dist/index.html')
 
 ## Метрики
 1) ttfcp (time to first contentfull paint) - время до первой отрисовки контента;
