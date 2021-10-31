@@ -1,5 +1,6 @@
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import format from 'date-fns/format';
+import {counterId} from "../const";
 
 const logStyle = 'font-size:18px; font-weight: bold;padding:3px 5px;color:magenta';
 
@@ -56,7 +57,7 @@ function showSession(data, requestId) {
 
     table[requestId] = requestData;
 
-    console.log(`%cAll metrics from requestId ${requestId}`, logStyle);
+    console.log(`%cMetrics from requestId ${requestId}`, logStyle);
     console.table(table)
 }
 
@@ -121,18 +122,18 @@ function calcMetricsByDate(data, page, date) {
     console.table(table);
 }
 
-fetch('https://shri.yandex/hw/stat/data?counterId=D9F99E50-3339-11EC-9EDF-9F93090795B7')
+fetch(`https://shri.yandex/hw/stat/data?counterId=${counterId}`)
     .then(res => res.json())
     .then(result => {
         let data = prepareData(result);
 
-        showSession(data, '434184537666');
+        showSession(data, '914323395455');
 
         calcMetricsByDate(data, 'game', '2021-10-29');
 
         const period = {
-            dateFrom: '2021-10-28',
-            dateTo: '2021-10-30',
+            dateFrom: '2021-10-31',
+            dateTo: '2021-11-01',
         };
         showMetricByPeriod(data, period, 'game', 'ttfmp');
 

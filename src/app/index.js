@@ -2,10 +2,11 @@ import {BOARD_HEIGHT, BOARD_WIDTH, LETTER_SIZE, LETTER_SPACE, COLORS, defaultTex
 import Counter from './js/send';
 import {detectBrowser} from "./js/detect";
 import './styles.css';
+import {counterId} from "../const";
 
 let counter = new Counter();
 
-counter.init('D9F99E50-3339-11EC-9EDF-9F93090795B7', String(Math.random()).substr(2, 12), 'game');
+counter.init(counterId, String(Math.random()).substr(2, 12), 'game');
 counter.setAdditionalParams({
     platform: navigator.platform,
     browser: detectBrowser()
