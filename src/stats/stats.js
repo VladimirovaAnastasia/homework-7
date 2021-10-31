@@ -129,7 +129,7 @@ fetch(`https://shri.yandex/hw/stat/data?counterId=${counterId}`)
 
         showSession(data, '914323395455');
 
-        calcMetricsByDate(data, 'game', '2021-10-29');
+        calcMetricsByDate(data, 'game', '2021-10-31');
 
         const period = {
             dateFrom: '2021-10-31',
