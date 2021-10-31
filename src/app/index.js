@@ -88,7 +88,6 @@ window.addEventListener("load", () => {
     }
 });
 
-console.log(navigator.geolocation)
 const board = document.querySelector('#board');
 const button = document.querySelector('#surprise-button');
 
