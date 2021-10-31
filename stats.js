@@ -1,6 +1,20 @@
 "use strict";
 (self["webpackChunkhomework_7"] = self["webpackChunkhomework_7"] || []).push([["stats"],{
 
+/***/ "./src/const.js":
+/*!**********************!*\
+  !*** ./src/const.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "counterId": () => (/* binding */ counterId)
+/* harmony export */ });
+const counterId = 'D9F99E50-3339-11EC-9EDF-7F93090795B7';
+
+/***/ }),
+
 /***/ "./src/stats/stats.js":
 /*!****************************!*\
   !*** ./src/stats/stats.js ***!
@@ -8,8 +22,10 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var date_fns_eachDayOfInterval__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns/eachDayOfInterval */ "./node_modules/date-fns/esm/eachDayOfInterval/index.js");
-/* harmony import */ var date_fns_format__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/format */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns_eachDayOfInterval__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/eachDayOfInterval */ "./node_modules/date-fns/esm/eachDayOfInterval/index.js");
+/* harmony import */ var date_fns_format__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/format */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../const */ "./src/const.js");
+
 
 
 const logStyle = 'font-size:18px; font-weight: bold;padding:3px 5px;color:magenta';
@@ -36,13 +52,13 @@ function prepareData(result) {
 
 
 function showMetricByPeriod(data, period, page, metric) {
-  const dates = (0,date_fns_eachDayOfInterval__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  const dates = (0,date_fns_eachDayOfInterval__WEBPACK_IMPORTED_MODULE_1__["default"])({
     start: new Date(period.dateFrom),
     end: new Date(period.dateTo)
   });
   let table = {};
   dates.forEach(date => {
-    let formatDate = (0,date_fns_format__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 'yyyy-MM-dd');
+    let formatDate = (0,date_fns_format__WEBPACK_IMPORTED_MODULE_2__["default"])(date, 'yyyy-MM-dd');
     table[formatDate] = addMetricByDate(data, page, metric, formatDate);
   });
   console.log(`%cAll metrics from ${period.dateFrom} to ${period.dateTo} for ${metric} metric`, logStyle);
@@ -57,7 +73,7 @@ function showSession(data, requestId) {
   });
   let table = {};
   table[requestId] = requestData;
-  console.log(`%cAll metrics from requestId ${requestId}`, logStyle);
+  console.log(`%cMetrics from requestId ${requestId}`, logStyle);
   console.table(table);
 } // сравнить метрику в разных срезах
 
@@ -110,13 +126,13 @@ function calcMetricsByDate(data, page, date) {
   console.table(table);
 }
 
-fetch('https://shri.yandex/hw/stat/data?counterId=D9F99E50-3339-11EC-9EDF-9F93090795B7').then(res => res.json()).then(result => {
+fetch(`https://shri.yandex/hw/stat/data?counterId=${_const__WEBPACK_IMPORTED_MODULE_0__.counterId}`).then(res => res.json()).then(result => {
   let data = prepareData(result);
-  showSession(data, '434184537666');
+  showSession(data, '914323395455');
   calcMetricsByDate(data, 'game', '2021-10-29');
   const period = {
-    dateFrom: '2021-10-28',
-    dateTo: '2021-10-30'
+    dateFrom: '2021-10-31',
+    dateTo: '2021-11-01'
   };
   showMetricByPeriod(data, period, 'game', 'ttfmp');
   const browderSettings = {

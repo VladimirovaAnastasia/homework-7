@@ -185,12 +185,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_send__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/send */ "./src/app/js/send.js");
 /* harmony import */ var _js_detect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/detect */ "./src/app/js/detect.js");
 /* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.css */ "./src/app/styles.css");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../const */ "./src/const.js");
+
 
 
 
 
 let counter = new _js_send__WEBPACK_IMPORTED_MODULE_1__["default"]();
-counter.init('D9F99E50-3339-11EC-9EDF-9F93090795B7', String(Math.random()).substr(2, 12), 'game');
+counter.init(_const__WEBPACK_IMPORTED_MODULE_4__.counterId, String(Math.random()).substr(2, 12), 'game');
 counter.setAdditionalParams({
   platform: navigator.platform,
   browser: (0,_js_detect__WEBPACK_IMPORTED_MODULE_2__.detectBrowser)()
@@ -402,7 +404,7 @@ Counter.prototype.send = function (name, value) {
       self.sendBatchRequest();
     }, COUNTERS_BATCH_TIMEOUT);
   } else {
-    sendBatchRequest();
+    self.sendBatchRequest();
   }
 };
 
@@ -423,6 +425,20 @@ Counter.prototype.sendBatchRequest = function () {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
+
+/***/ }),
+
+/***/ "./src/const.js":
+/*!**********************!*\
+  !*** ./src/const.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "counterId": () => (/* binding */ counterId)
+/* harmony export */ });
+const counterId = 'D9F99E50-3339-11EC-9EDF-7F93090795B7';
 
 /***/ }),
 
