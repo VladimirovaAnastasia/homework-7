@@ -129,7 +129,7 @@ function calcMetricsByDate(data, page, date) {
 fetch(`https://shri.yandex/hw/stat/data?counterId=${_const__WEBPACK_IMPORTED_MODULE_0__.counterId}`).then(res => res.json()).then(result => {
   let data = prepareData(result);
   showSession(data, '914323395455');
-  calcMetricsByDate(data, 'game', '2021-10-31');
+  calcMetricsByDate(data, 'game', '2021-10-29');
   const period = {
     dateFrom: '2021-10-31',
     dateTo: '2021-11-01'

@@ -256,6 +256,7 @@ if (window.performance) {
   let performance = window.performance;
   let navigation = performance.getEntriesByType("navigation")[0];
   counter.send('ttfb', navigation.responseEnd - navigation.requestStart);
+  console.log('connect', navigation.connectEnd, navigation.connectStart, navigation.connectEnd - navigation.connectStart);
   counter.send('connect', navigation.connectEnd - navigation.connectStart);
 }
 
@@ -270,7 +271,6 @@ window.addEventListener("load", () => {
     });
   }
 });
-console.log(navigator.geolocation);
 const board = document.querySelector('#board');
 const button = document.querySelector('#surprise-button');
 board.style.width = _const__WEBPACK_IMPORTED_MODULE_0__.BOARD_WIDTH + 'px';
