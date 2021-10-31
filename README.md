@@ -19,7 +19,7 @@ https://vladimirovaanastasia.github.io/homework-7/dist/stats.html
 1) ttfcp (time to first contentfull paint) - время до первой отрисовки контента;
 2) ttfmp (time to first meaningful paint) - время до отрисовки значимого контента;
 3) ttfb (time to first byte) - время, потраченное сервером на подготовку ответа и которое тратится в пути данными, идущими от клиента к серверу и от сервера к клиенту;
-4) connect (server connect time) - время между запросом на соединение с сервром и его установкой.
+4) connect (server connect time) - время между запросом на соединение с сервером и его установкой.
 
 ## Агрегация
 1) По периоду дат для одной метрики
