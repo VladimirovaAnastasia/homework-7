@@ -256,7 +256,6 @@ if (window.performance) {
   let performance = window.performance;
   let navigation = performance.getEntriesByType("navigation")[0];
   counter.send('ttfb', navigation.responseEnd - navigation.requestStart);
-  console.log('connect', navigation.connectEnd, navigation.connectStart, navigation.connectEnd - navigation.connectStart);
   counter.send('connect', navigation.connectEnd - navigation.connectStart);
 }
 
