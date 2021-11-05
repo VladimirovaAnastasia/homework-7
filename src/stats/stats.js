@@ -61,15 +61,20 @@ function showSession(data, requestId) {
     console.table(table)
 }
 
-// сравнить метрику в разных срезах
-function compareMetric(data, page, metric, settings) {
-    const {settingName, settingValues} = settings;
+function findSettingValues(data, page, metric, settingName) {
+    return new Set(data
+        .filter(item => item.page === page && item.name === metric && item.additional[settingName])
+        .map(item => item.additional[settingName]));
+}
 
+// сравнить метрику в разных срезах
+function compareMetric(data, page, metric, settingName) {
     let table = {};
 
-    settingValues.forEach((item) => {
-        table[item] = addMetricBySetting(data, page, metric, settingName, item);
-    });
+    let settingValues = findSettingValues(data, page, metric, settingName);
+    for (let value of settingValues) {
+        table[value] = addMetricBySetting(data, page, metric, settingName, value);
+    }
 
     console.log(`%cCompare ${settingName} setting for ${metric} metric`, logStyle);
     console.table(table);
@@ -137,9 +142,6 @@ fetch(`https://shri.yandex/hw/stat/data?counterId=${counterId}`)
         };
         showMetricByPeriod(data, period, 'game', 'ttfmp');
 
-        const browderSettings = {settingName: 'browser', settingValues: ['Yandex Browser', 'Safari']};
-        compareMetric(data, 'game', 'ttfmp', browderSettings);
-
-        const platformSettings = {settingName: 'platform', settingValues: ['Win32', 'MacIntel']};
-        compareMetric(data, 'game', 'ttfmp', platformSettings);
+        compareMetric(data, 'game', 'ttfmp', 'browser');
+        compareMetric(data, 'game', 'ttfmp', 'platform');
     });
